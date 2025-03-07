@@ -1,3 +1,9 @@
+rocm-devicelibs (6.2.4-1revyos2) UNRELEASED; urgency=medium
+
+  * Fix wrong install path
+
+ -- CHEN Xuan <chenxuan@iscas.ac.cn>  Fri, 07 Mar 2025 12:46:47 +0800
+
 rocm-devicelibs (6.2.4-1revyos1) UNRELEASED; urgency=medium
 
   * Initial release.

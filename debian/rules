@@ -8,7 +8,7 @@ ROCM_BIN_PATH=${ROCM_PATH}/bin
 MAKEOPTS := "-j$(shell nproc)"
 TOP_DIR := $(shell pwd)/amd/device-libs
 BUILD_PATH := ${TOP_DIR}/rocm-build
-DEB_INST_DIR :=  ${TOP_DIR}/debian/rocm-devicelibs
+DEB_INST_DIR :=  $(shell pwd)/debian/rocm-devicelibs
 
 %:
 	dh $@

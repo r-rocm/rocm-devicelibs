@@ -4,10 +4,11 @@ export DH_VERBOSE = 1
 
 ROCM_VERSION=6.2.4
 ROCM_PATH=/opt/rocm-${ROCM_VERSION}
+ROCM_BIN_PATH=${ROCM_PATH}/bin
 MAKEOPTS := "-j$(shell nproc)"
 TOP_DIR := $(shell pwd)/amd/device-libs
-BUILD_PATH := $(TOP_DIR)/rocm-build
-DEB_INST_DIR := $(TOP_DIR)/debian/rocm-devicelibs
+BUILD_PATH := ${TOP_DIR}/rocm-build
+DEB_INST_DIR :=  ${TOP_DIR}/debian/rocm-devicelibs
 
 %:
 	dh $@
@@ -19,8 +20,7 @@ override_dh_auto_configure:
 		-DCMAKE_C_COMPILER=${ROCM_BIN_PATH}/clang \
 		-DCMAKE_CXX_COMPILER=${ROCM_BIN_PATH}/clang++ \
 		-DROCM_DEVICE_LIBS_BITCODE_INSTALL_LOC_NEW="lib/clang/18/lib/amdgcn" \
-		-DROCM_DEVICE_LIBS_BITCODE_INSTALL_LOC_OLD="amdgcn" \
-		-DCMAKE_INSTALL_PREFIX=${ROCM_INSTALL_PATH}
+		-DROCM_DEVICE_LIBS_BITCODE_INSTALL_LOC_OLD="amdgcn"
 
 
 override_dh_auto_build:

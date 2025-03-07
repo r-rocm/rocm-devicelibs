@@ -1,0 +1,19 @@
+Source: rocm-devicelibs
+Section: devel
+Priority: optional
+Maintainer: CHEN Xuan <chenxuan@iscas.ac.cn>
+Rules-Requires-Root: no
+Build-Depends:
+ debhelper-compat (= 13),
+ cmake,
+Standards-Version: 4.7.0
+Homepage: <insert the upstream URL, if relevant>
+Vcs-Browser: https://github.com/r-rocm/rocm-devicelibs
+Vcs-Git: https://github.com/r-rocm/rocm-devicelibs.git
+
+Package: rocm-devicelibs
+Architecture: any
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+Description: rocm-devicelibs

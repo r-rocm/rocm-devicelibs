@@ -16,11 +16,13 @@ DEB_INST_DIR :=  ${TOP_DIR}/debian/rocm-devicelibs
 # 6.2.4 -> 60204
 override_dh_auto_configure:
 	cmake -S ${TOP_DIR} -B ${BUILD_PATH} \
+		-DCMAKE_INSTALL_PREFIX=${ROCM_PATH} \
 		-DCMAKE_BUILD_TYPE=Release \
 		-DCMAKE_C_COMPILER=${ROCM_BIN_PATH}/clang \
 		-DCMAKE_CXX_COMPILER=${ROCM_BIN_PATH}/clang++ \
 		-DROCM_DEVICE_LIBS_BITCODE_INSTALL_LOC_NEW="lib/clang/18/lib/amdgcn" \
-		-DROCM_DEVICE_LIBS_BITCODE_INSTALL_LOC_OLD="amdgcn"
+		-DROCM_DEVICE_LIBS_BITCODE_INSTALL_LOC_OLD="amdgcn" \
+		-DCMAKE_PREFIX_PATH="${CMAKE_PREFIX_PATH}:${ROCM_PATH}"
 
 
 override_dh_auto_build:
